@@ -19,7 +19,7 @@
 
 
 ## Objetivo do Software
-### O objetivo do sistema é gerenciar as operações de atendimento emergencial do Serviço de Atendimento Móvel de Urgência (SAMU), permitindo o cadastro de ocorrências, gerenciamento de equipes, e registro de pacientes.
+### O objetivo do sistema é gerenciar as operações de atendimento emergencial do Serviço de Atendimento Móvel de Urgência (SAMU), permitindo o cadastro de ocorrências e registro de pacientes, e caso haja espaço, haverá outras funcionalidades.
 
 ## Funcionalidades do Sistema
 ### Cadastro de Ocorrências: Registrar novas ocorrências, com informações detalhadas sobre localização e tipo de emergência.
