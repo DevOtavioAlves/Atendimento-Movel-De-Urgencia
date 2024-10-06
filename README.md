@@ -5,9 +5,11 @@
 ## Tecnologias Utilizadas
 ### Java 17: Linguagem de programação principal.
 ### Spring Boot: Framework para criação e gerenciamento de APIs REST.
+### JPA (Java Persistence API): Para mapeamento e persistência de dados. // O JDBC foi cortado por falta de flexibilidade no projeto
 ### Maven: Gerenciamento de dependências.
-### Banco de Dados JBDC foi cortado deste Projeto, agora será utilizado JPA.
 ### Postman: Ferramenta para testar as APIs REST.
+### Thymeleaf: Para renderização de páginas dinâmicas (opcional).
+### HTML, CSS e JavaScript: Para a criação das páginas web.
 
 ## Time de Desenvolvedores
 ### Desenvolvedor Principal (Front/Back End): Otávio Alves
