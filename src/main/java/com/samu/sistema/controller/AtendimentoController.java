@@ -49,4 +49,10 @@ public class AtendimentoController {
         atendimentoRepository.deleteById(id);
         return "redirect:/atendimentos";
     }
+    @GetMapping("/buscar")
+    public String buscarAtendimento(@RequestParam("descricao") String nome, Model model) {
+        List<Atendimento> atendimentos = atendimentoRepository.findByProfissionalNomeContaining(nome);
+        model.addAttribute("atendimentos", atendimentos);
+        return "atendimento-lista"; // O nome da sua view para listar atendimentos
+    }
 }

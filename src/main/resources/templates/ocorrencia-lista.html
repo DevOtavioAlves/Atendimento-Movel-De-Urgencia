@@ -6,6 +6,13 @@
 </head>
 <body>
 <h1>Lista de Ocorrências</h1>
+
+<!-- Campo de busca -->
+<form action="#" th:action="@{/ocorrencias/buscar}" method="get">
+    <input type="text" name="descricao" placeholder="Buscar por descrição" />
+    <button type="submit">Buscar</button>
+</form>
+
 <table>
     <tr>
         <th>ID</th>

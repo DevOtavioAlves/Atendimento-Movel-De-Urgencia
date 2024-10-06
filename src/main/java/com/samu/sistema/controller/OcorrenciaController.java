@@ -49,4 +49,11 @@ public class OcorrenciaController {
         ocorrenciaRepository.deleteById(id);
         return "redirect:/ocorrencias";
     }
+    
+    @GetMapping("/buscar")
+    public String buscarOcorrencias(@RequestParam("descricao") String descricao, Model model) {
+        List<Ocorrencia> ocorrencias = ocorrenciaRepository.findByDescricaoContaining(descricao);
+        model.addAttribute("ocorrencias", ocorrencias);
+        return "ocorrencia-lista"; // O nome da sua view para listar ocorrências
+    }
 }

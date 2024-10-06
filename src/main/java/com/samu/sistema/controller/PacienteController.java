@@ -1,5 +1,6 @@
 package com.samu.sistema.controller;
 
+import com.samu.sistema.model.Ocorrencia;
 import com.samu.sistema.model.Paciente;
 import com.samu.sistema.repository.PacienteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -49,4 +50,11 @@ import java.util.List;
                            return "redirect:/pacientes";
                            
                   }
+                  @GetMapping("/buscar")
+                  public String buscarPaciente(@RequestParam("nome") String nome, Model model) {
+                           List<Paciente> pacientes = pacienteRepository.findByNomeContaining(nome);
+                           model.addAttribute("pacientes", pacientes);
+                           return "paciente-lista"; // O nome da sua view para listar ocorrências
+                  }
+
          }

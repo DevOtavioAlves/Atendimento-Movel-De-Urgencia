@@ -55,4 +55,5 @@ public class OcorrenciaApiController {
         }
         return ResponseEntity.notFound().build();
     }
+    
 }
