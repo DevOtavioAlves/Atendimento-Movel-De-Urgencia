@@ -1,7 +1,9 @@
 package com.samu.sistema.controller;
 
 import com.samu.sistema.model.Atendimento;
-import com.samu.sistema.repository.InMemoryAtendimentoRepository;
+import com.samu.sistema.model.Paciente;
+import com.samu.sistema.repository.AtendimentoRepository;
+import com.samu.sistema.repository.PacienteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,19 +17,24 @@ import java.util.List;
 public class AtendimentoController {
 
     @Autowired
-    private InMemoryAtendimentoRepository atendimentoRepository;
+    private AtendimentoRepository atendimentoRepository;
+    
+    @Autowired
+    private PacienteRepository pacienteRepository;
 
     @GetMapping
     public String listarAtendimentos(Model model) {
         List<Atendimento> atendimentos = atendimentoRepository.findAll();
-        model.addAttribute("atendimentos", atendimentos);
+        model.addAttribute("atendimentos",atendimentos);
         return "atendimento-lista";
     }
 
     @GetMapping("/novo")
     public String novoAtendimento(Model model) {
-        model.addAttribute("atendimento", new Atendimento());
-        return "atendimento-form";
+         List<Paciente> pacientes = pacienteRepository.findAll();
+         model.addAttribute("pacientes", pacientes);
+         model.addAttribute("atendimento", new Atendimento());
+         return "atendimento-form";
     }
 
     @PostMapping("/salvar")

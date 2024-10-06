@@ -1,7 +1,7 @@
 package com.samu.sistema.controller;
 
 import com.samu.sistema.model.Paciente;
-import com.samu.sistema.repository.InMemoryPacienteRepository;
+import com.samu.sistema.repository.PacienteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,16 +14,13 @@ import java.util.List;
          public class PacienteController {
 
                   @Autowired
-                  private InMemoryPacienteRepository repository;
+                  private PacienteRepository pacienteRepository;
 
                   @GetMapping
                   public String listarPacientes(Model model) {
-                      
-                           List<Paciente> pacientes = repository.findAll();
-                           model.addAttribute("pacientes", pacientes);
-                           
-                           return "paciente-lista";
-                           
+                        List<Paciente> pacientes = pacienteRepository.findAll();
+                        model.addAttribute("pacientes", pacientes);
+                        return "paciente-lista";
                   }
 
                   @GetMapping("/novo")
@@ -38,7 +35,7 @@ import java.util.List;
                   @PostMapping("/salvar")
                   public String salvarPaciente(@ModelAttribute Paciente paciente) {
                       
-                           repository.save(paciente);
+                           pacienteRepository.save(paciente);
                            
                            return "redirect:/pacientes";
                            
@@ -47,7 +44,7 @@ import java.util.List;
                   @GetMapping("/excluir/{id}")
                   public String excluirPaciente(@PathVariable Long id) {
                       
-                           repository.deleteById(id);
+                           pacienteRepository.deleteById(id);
                            
                            return "redirect:/pacientes";
                            

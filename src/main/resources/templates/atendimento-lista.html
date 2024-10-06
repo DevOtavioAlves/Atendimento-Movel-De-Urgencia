@@ -22,7 +22,7 @@
         <td th:text="${atendimento.endereco}"></td>
         <td th:text="${atendimento.dataHora}"></td>
         <td th:text="${atendimento.status}"></td>
-        <td th:text="${atendimento.profissionalNome != null ? atendimento.profissionalNome : 'N/A'}"></td>
+        <td th:text="${atendimento.profissionalNome}"></td>
         <td>
             <a th:href="@{/atendimentos/excluir/{id}(id=${atendimento.id})}">Excluir</a>
         </td>

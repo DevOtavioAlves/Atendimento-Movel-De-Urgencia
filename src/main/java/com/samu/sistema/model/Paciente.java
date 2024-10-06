@@ -1,9 +1,9 @@
 package com.samu.sistema.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.samu.sistema.model.Ocorrencia;
+import jakarta.persistence.*;
+import java.util.List;
 
          @Entity
          public class Paciente {
@@ -11,9 +11,18 @@ import jakarta.persistence.Id;
                   @Id
                   @GeneratedValue(strategy = GenerationType.IDENTITY)
                   private Long id;
+                  
                   private String nome;
                   private String endereco;
                   private String telefone;
+                  
+                  @OneToMany(mappedBy = "paciente", cascade = CascadeType.ALL)
+                  @JsonIgnore
+                  private List<Ocorrencia> ocorrencias;
+
+                  @OneToMany(mappedBy = "paciente", cascade = CascadeType.ALL)
+                  @JsonIgnore
+                  private List<Atendimento> atendimentos;
 
                   public Long getId() {
                       
@@ -59,7 +68,32 @@ import jakarta.persistence.Id;
 
                   public void setTelefone(String telefone) {
                       
-                        this.telefone = telefone;
+                           this.telefone = telefone;
                         
                   }
+
+                  public List<Ocorrencia> getOcorrencias() {
+                      
+                           return ocorrencias;
+                           
+                  }
+
+                  public void setOcorrencias(List<Ocorrencia> ocorrencias) {
+                      
+                           this.ocorrencias = ocorrencias;
+                           
+                  }
+
+                  public List<Atendimento> getAtendimentos() {
+                      
+                           return atendimentos;
+                           
+                  }
+
+                  public void setAtendimentos(List<Atendimento> atendimentos) {
+                      
+                           this.atendimentos = atendimentos;
+                           
+                  }
+                  
          }

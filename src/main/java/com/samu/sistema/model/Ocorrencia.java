@@ -1,98 +1,100 @@
 package com.samu.sistema.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import java.time.LocalDateTime;
 
+         @Entity
          public class Ocorrencia {
              
+                  @Id
+                  @GeneratedValue(strategy = GenerationType.IDENTITY)
                   private Long id;
+                  
                   private String descricao;
                   private String endereco;
                   private LocalDateTime dataHora;
                   private String status;
-                  private Long pacienteId; // Relaciona com o paciente
-                  private String pacienteNome;
+                  
+                  @ManyToOne
+                  @JoinColumn(name = "paciente_id")
+                  @JsonIgnore
+                  private Paciente paciente;
 
                   public Long getId() {
                       
-                        return id;
+                           return id;
                         
                   }
 
                   public void setId(Long id) {
                       
-                        this.id = id;
+                           this.id = id;
                         
                   }
 
                   public String getDescricao() {
                       
-                        return descricao;
+                           return descricao;
                         
                   }
 
                   public void setDescricao(String descricao) {
                       
-                        this.descricao = descricao;
+                           this.descricao = descricao;
                         
                   }
 
                   public String getEndereco() {
                       
-                        return endereco;
+                           return endereco;
                         
                   }
 
                   public void setEndereco(String endereco) {
                       
-                        this.endereco = endereco;
+                           this.endereco = endereco;
                         
                   }
 
                   public LocalDateTime getDataHora() {
                       
-                        return dataHora;
+                           return dataHora;
                         
                   }
 
                   public void setDataHora(LocalDateTime dataHora) {
                       
-                        this.dataHora = dataHora;
+                           this.dataHora = dataHora;
                         
                   }
 
                   public String getStatus() {
                       
-                        return status;
+                           return status;
                         
                   }
 
                   public void setStatus(String status) {
                       
-                        this.status = status;
+                           this.status = status;
                         
                   }
 
-                  public Long getPacienteId() {
+                  public Paciente getPaciente() {
                       
-                        return pacienteId;
+                           return paciente;
                         
                   }
 
-                  public void setPacienteId(Long pacienteId) {
+                  public void setPaciente(Paciente paciente) {
                       
-                        this.pacienteId = pacienteId;
-                        
-                  }
-
-                  public String getPacienteNome() {
-                      
-                        return pacienteNome;
-                        
-                  }
-
-                  public void setPacienteNome(String pacienteNome) {
-                      
-                        this.pacienteNome = pacienteNome;
-                        
-                  }
+                           this.paciente = paciente;
+                           
+                  }      
          }

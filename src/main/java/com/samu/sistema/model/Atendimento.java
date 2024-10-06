@@ -1,18 +1,28 @@
 package com.samu.sistema.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.samu.sistema.model.Paciente;
+import jakarta.persistence.*;
 import java.time.LocalDateTime;
 
+         @Entity
          public class Atendimento {
+             
+                  @Id
+                  @GeneratedValue(strategy = GenerationType.IDENTITY)
                   private Long id;
+                  
                   private String descricao;
                   private String endereco;
                   private LocalDateTime dataHora;
                   private String status;
-                  private Long pacienteId;  // ID do paciente atendido
-                  private Long profissionalId;  // ID do profissional responsável
+                  
+                  private String profissionalNome;
 
-                  private String pacienteNome;  // Nome do paciente
-                  private String profissionalNome;  // Nome do profissional responsável
+                  @ManyToOne
+                  @JoinColumn(name = "paciente_id")
+                  @JsonIgnore
+                  private Paciente paciente;
 
                   public Long getId() {
                            return id;
@@ -71,52 +81,29 @@ import java.time.LocalDateTime;
                         this.status = status;
                         
                   }
-                  
-                  public Long getPacienteId() {
-                      
-                        return pacienteId;
-                        
-                  }
-
-                  public void setPacienteId(Long pacienteId) {
-                      
-                        this.pacienteId = pacienteId;
-                        
-                  }
-
-                  public Long getProfissionalId() {
-                      
-                        return profissionalId;
-                        
-                  }
-
-                  public void setProfissionalId(Long profissionalId) {
-                      
-                        this.profissionalId = profissionalId;
-                        
-                  }
-
-                  public String getPacienteNome() {
-                      
-                        return pacienteNome;
-                        
-                  }
-
-                  public void setPacienteNome(String pacienteNome) {
-                      
-                        this.pacienteNome = pacienteNome;
-                        
-                  }
 
                   public String getProfissionalNome() {
                       
-                        return profissionalNome;
-                        
+                           return profissionalNome;
+                           
                   }
 
-                  public void setProfissionalNome(String profissionalNome) {
+                  public void setProfissionalNome(String profssionalNome) {
                       
-                        this.profissionalNome = profissionalNome;
-                        
-                  }                                  
+                           this.profissionalNome = profssionalNome;
+                           
+                  }
+                  
+
+                  public Paciente getPaciente() {
+                      
+                           return paciente;
+                           
+                  }
+
+                  public void setPaciente(Paciente paciente) {
+                      
+                           this.paciente = paciente;
+                           
+                  }   
          }

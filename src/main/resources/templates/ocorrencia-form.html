@@ -14,9 +14,9 @@
     <label>Status:</label>
     <input type="text" th:field="*{status}" required/><br/>
     <label>Paciente:</label>
-    <select th:field="*{pacienteId}">
-        <option th:each="paciente : ${pacientes}" th:value="${paciente.id}" th:text="${paciente.nome}"></option>
-    </select><br/>
+    <select th:field="*{paciente}">
+    <option th:each="paciente : ${pacientes}" th:value="${paciente.id}" th:text="${paciente.nome}"></option>
+    </select>
     <button type="submit">Salvar</button>
 </form>
 <a href="/ocorrencias">Voltar</a>
