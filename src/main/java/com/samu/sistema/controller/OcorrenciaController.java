@@ -29,12 +29,16 @@ import java.util.List;
 
                            // Atribuir o nome do paciente a cada ocorrência
                            for (Ocorrencia ocorrencia : ocorrencias) {
+                               
                                     Paciente paciente = pacientes.stream()
                                              .filter(p -> p.getId().equals(ocorrencia.getPacienteId()))
                                              .findFirst()
                                              .orElse(null);
+                                    
                                     if (paciente != null) {
+                                        
                                              ocorrencia.setPacienteNome(paciente.getNome());
+                                             
                                     }
                            }
 
