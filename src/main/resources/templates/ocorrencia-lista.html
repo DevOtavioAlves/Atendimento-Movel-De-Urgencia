@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Lista de Ocorrências</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<h1>Lista de Ocorrências</h1>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Descrição</th>
+        <th>Endereço</th>
+        <th>Data e Hora</th>
+        <th>Status</th>
+        <th>Paciente</th>
+        <th>Ações</th>
+    </tr>
+    <tr th:each="ocorrencia : ${ocorrencias}">
+        <td th:text="${ocorrencia.id}"></td>
+        <td th:text="${ocorrencia.descricao}"></td>
+        <td th:text="${ocorrencia.endereco}"></td>
+        <td th:text="${ocorrencia.dataHora}"></td>
+        <td th:text="${ocorrencia.status}"></td>
+        <td th:text="${ocorrencia.pacienteNome}"></td>
+        <td>
+            <a th:href="@{/ocorrencias/excluir/{id}(id=${ocorrencia.id})}">Excluir</a>
+        </td>
+    </tr>
+</table>
+<a href="/ocorrencias/novo">Nova Ocorrência</a>
+</body>
+</html>

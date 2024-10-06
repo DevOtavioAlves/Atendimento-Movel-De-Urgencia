@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Cadastro de Ocorrência</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<h1>Cadastro de Ocorrência</h1>
+<form th:action="@{/ocorrencias/salvar}" th:object="${ocorrencia}" method="post">
+    <label>Descrição:</label>
+    <input type="text" th:field="*{descricao}" required/><br/>
+    <label>Endereço:</label>
+    <input type="text" th:field="*{endereco}" required/><br/>
+    <label>Status:</label>
+    <input type="text" th:field="*{status}" required/><br/>
+    <label>Paciente:</label>
+    <select th:field="*{pacienteId}">
+        <option th:each="paciente : ${pacientes}" th:value="${paciente.id}" th:text="${paciente.nome}"></option>
+    </select><br/>
+    <button type="submit">Salvar</button>
+</form>
+<a href="/ocorrencias">Voltar</a>
+</body>
+</html>
