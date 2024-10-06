@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Lista de Atendimentos</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<h1>Lista de Atendimentos</h1>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Descrição</th>
+        <th>Endereço</th>
+        <th>Data e Hora</th>
+        <th>Status</th>
+        <th>Profissional</th>
+        <th>Ações</th>
+    </tr>
+    <tr th:each="atendimento : ${atendimentos}">
+        <td th:text="${atendimento.id}"></td>
+        <td th:text="${atendimento.descricao}"></td>
+        <td th:text="${atendimento.endereco}"></td>
+        <td th:text="${atendimento.dataHora}"></td>
+        <td th:text="${atendimento.status}"></td>
+        <td th:text="${atendimento.profissionalNome != null ? atendimento.profissionalNome : 'N/A'}"></td>
+        <td>
+            <a th:href="@{/atendimentos/excluir/{id}(id=${atendimento.id})}">Excluir</a>
+        </td>
+    </tr>
+</table>
+<a href="/atendimentos/novo">Novo Atendimento</a>
+</body>
+</html>
