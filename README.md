@@ -6,7 +6,7 @@
 ### Java 17: Linguagem de programação principal.
 ### Spring Boot: Framework para criação e gerenciamento de APIs REST.
 ### Maven: Gerenciamento de dependências.
-### Banco de Dados JDBC (futuramente).
+### Banco de Dados JBDC foi cortado deste Projeto, agora será utilizado JPA.
 ### Postman: Ferramenta para testar as APIs REST.
 
 ## Time de Desenvolvedores
