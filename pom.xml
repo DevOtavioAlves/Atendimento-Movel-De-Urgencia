@@ -10,9 +10,10 @@
 	</parent>
 	<groupId>com.samu.sistema</groupId>
 	<artifactId>samu-sistema</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0.0-SNAPSHOT</version>
 	<name>sistema-samu</name>
-	<description>Demo project for Spring Boot</description>
+	<description>Projeto para SAMU</description>
+                  <packaging>war</packaging> 
 	<url/>
 	<licenses>
 		<license/>

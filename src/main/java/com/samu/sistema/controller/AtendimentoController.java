@@ -12,47 +12,62 @@ import org.springframework.web.bind.annotation.*;
 import java.time.LocalDateTime;
 import java.util.List;
 
-@Controller
-@RequestMapping("/atendimentos")
-public class AtendimentoController {
+         @Controller
+         @RequestMapping("/atendimentos")
+         public class AtendimentoController {
 
-    @Autowired
-    private AtendimentoRepository atendimentoRepository;
-    
-    @Autowired
-    private PacienteRepository pacienteRepository;
+                  @Autowired
+                  private AtendimentoRepository atendimentoRepository;
 
-    @GetMapping
-    public String listarAtendimentos(Model model) {
-        List<Atendimento> atendimentos = atendimentoRepository.findAll();
-        model.addAttribute("atendimentos",atendimentos);
-        return "atendimento-lista";
-    }
+                  @Autowired
+                  private PacienteRepository pacienteRepository;
 
-    @GetMapping("/novo")
-    public String novoAtendimento(Model model) {
-         List<Paciente> pacientes = pacienteRepository.findAll();
-         model.addAttribute("pacientes", pacientes);
-         model.addAttribute("atendimento", new Atendimento());
-         return "atendimento-form";
-    }
+                  @GetMapping
+                  public String listarAtendimentos(Model model) {
+                      
+                           List<Atendimento> atendimentos = atendimentoRepository.findAll();
+                           model.addAttribute("atendimentos",atendimentos);
+                           
+                           return "atendimento-lista";
+                           
+                  }
 
-    @PostMapping("/salvar")
-    public String salvarAtendimento(@ModelAttribute Atendimento atendimento) {
-        atendimento.setDataHora(LocalDateTime.now());
-        atendimentoRepository.save(atendimento);
-        return "redirect:/atendimentos";
-    }
+                  @GetMapping("/novo")
+                  public String novoAtendimento(Model model) {
+                      
+                           List<Paciente> pacientes = pacienteRepository.findAll();
+                           model.addAttribute("pacientes", pacientes);
+                           model.addAttribute("atendimento", new Atendimento());
+                           
+                           return "atendimento-form";
+                           
+                  }
 
-    @GetMapping("/excluir/{id}")
-    public String excluirAtendimento(@PathVariable Long id) {
-        atendimentoRepository.deleteById(id);
-        return "redirect:/atendimentos";
-    }
-    @GetMapping("/buscar")
-    public String buscarAtendimento(@RequestParam("descricao") String nome, Model model) {
-        List<Atendimento> atendimentos = atendimentoRepository.findByProfissionalNomeContaining(nome);
-        model.addAttribute("atendimentos", atendimentos);
-        return "atendimento-lista"; // O nome da sua view para listar atendimentos
-    }
-}
+                  @PostMapping("/salvar")
+                  public String salvarAtendimento(@ModelAttribute Atendimento atendimento) {
+                      
+                           atendimento.setDataHora(LocalDateTime.now());
+                           atendimentoRepository.save(atendimento);
+                           
+                           return "redirect:/atendimentos";
+                           
+                  }
+
+                  @GetMapping("/excluir/{id}")
+                  public String excluirAtendimento(@PathVariable Long id) {
+                      
+                           atendimentoRepository.deleteById(id);
+                           
+                           return "redirect:/atendimentos";
+                           
+                  }
+                  @GetMapping("/buscar")
+                  public String buscarAtendimento(@RequestParam("descricao") String nome, Model model) {
+                      
+                           List<Atendimento> atendimentos = atendimentoRepository.findByProfissionalNomeContaining(nome);
+                           model.addAttribute("atendimentos", atendimentos);
+                           
+                           return "atendimento-lista"; // O nome da sua view para listar atendimentos
+                           
+                  }
+         }

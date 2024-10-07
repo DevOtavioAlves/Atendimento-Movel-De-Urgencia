@@ -23,7 +23,8 @@
 
 ## Funcionalidades do Sistema
 ### Cadastro de Ocorrências: Registrar novas ocorrências, com informações detalhadas sobre localização e tipo de emergência.
-### Gerenciamento de Equipes: Atribuir equipes disponíveis para atendimento conforme proximidade e especialização. // Opcional caso tenha espaço no projeto
-### Consulta de Ocorrências: Listar ocorrências ativas e concluídas. // Opcional caso tenha espaço no projeto
+### Consulta de Ocorrências: Listar ocorrências ativas e concluídas.
 ### Cadastro de Pacientes: Armazenar informações de pacientes para histórico de atendimento.
-### Relatório de Atendimentos: Gerar relatórios para análise e revisão de processos. // Opcional caso tenha espaço no projeto
+### Relatório de Atendimentos: Gerar relatórios para análise e revisão de processos.
+### Consulta de Pacientes: Listar pacientes com problemas ocorridos.
+### Consulta de Atendimentos: Listar atendimentos anteriores e causas deles.

@@ -19,9 +19,12 @@ import java.util.List;
 
                   @GetMapping
                   public String listarPacientes(Model model) {
-                        List<Paciente> pacientes = pacienteRepository.findAll();
-                        model.addAttribute("pacientes", pacientes);
-                        return "paciente-lista";
+                      
+                           List<Paciente> pacientes = pacienteRepository.findAll();
+                           model.addAttribute("pacientes", pacientes);
+                           
+                           return "paciente-lista";
+                           
                   }
 
                   @GetMapping("/novo")
@@ -52,9 +55,12 @@ import java.util.List;
                   }
                   @GetMapping("/buscar")
                   public String buscarPaciente(@RequestParam("nome") String nome, Model model) {
+                      
                            List<Paciente> pacientes = pacienteRepository.findByNomeContaining(nome);
                            model.addAttribute("pacientes", pacientes);
+                           
                            return "paciente-lista"; // O nome da sua view para listar ocorrências
+                           
                   }
 
          }
